@@ -39,23 +39,15 @@ function editThis() {
     $('.row-edit').on("click", function () {
         let id = $(this).attr('data-id');
         console.log(`row ${id} edit clicked`);
-        // let entry = 0;
-        // if (entry === 0) {
         $('#movie-title-input').hide();
-        $('#movie-edit').show()
+        $('#movie-edit').show();
         $('#submit-button').hide();
         $('#edit-button').show();
-       // }
-
         $('#edit-button').on("click", function (e) {
             e.preventDefault();
-            let title = $('#movie-title-input').val();
+            let title = $('#movie-edit').val();
             let rating = $('#movie-rating-input').val();
-            let movie = {
-                title: title,
-                rating: rating,
-                id: id
-            };
+
             console.log(`row button id: ${id}`);
 
             fetch(`/api/movies/${id}`, {
