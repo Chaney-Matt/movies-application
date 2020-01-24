@@ -5,6 +5,7 @@ html, body {
 .container {
     display: flex;
     justify-content: center;
+    font-family: 'Montserrat', sans-serif;
     /*top: 50%;*/
     /*transform: translateY(-100%);*/
     /*text-align: center;*/
@@ -16,4 +17,108 @@ html, body {
     /*top: 50%;*/
     /*transform: translateY(-100%);*/
     text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    padding-top: 1em;
 }
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Bebas Neue', cursive;
+    background-color: darkred;
+    color: white;
+    height: 3em;
+    padding-top: 1em;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#branding-icon {
+    width: 50px;
+    height: 50px;
+    padding-left: 1em;
+}
+
+table {
+    border: none;
+    margin-top: 1em;
+}
+
+th {
+    font-family: 'Bebas Neue', cursive;
+    font-size: x-large;
+    background-color: darkred;
+    color: white;
+    padding: 0;
+}
+
+td {
+    padding: 1em 3em;
+}
+
+#movie-title-input, #movie-edit {
+    font-family: 'Montserrat', sans-serif;
+    font-size: medium;
+    color: darkred;
+    margin: 0 auto;
+    height: 2em;
+    width: 20%;
+    border-radius: 25px;
+    border: 2px solid darkred;
+    padding-left: 1em;
+}
+
+#search-container {
+    padding-bottom: 1em;
+}
+
+#search-bar {
+    font-family: 'Montserrat', sans-serif;
+    font-size: medium;
+    height: 2em;
+    border: 2px solid white;
+    border-radius: 25px;
+    padding-left: 1em;
+    width: 20vw;
+}
+
+#search-button {
+    background-color: white;
+    border: 2px solid white;
+    border-radius: 25px;
+    color: darkred;
+    margin-right: 2em;
+    height: 3em;
+}
+
+#submit-button{
+    background-color: darkred;
+    border: 1px solid white;
+    border-radius: 25px;
+    color: white;
+    height: 2em;
+    text-align: center;
+    /*background-color: darkred;*/
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 4em;
+}
+
+.row-edit, .row-delete {
+    color: darkred;
+}
+
+/*#submit-button, #edit-button:active {*/
+/*    background-color: #ff9999;*/
+/*}*/
+
+
+
+
+

@@ -1,32 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <title>My Application</title>
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/style.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
-</head>
+    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Montserrat&display=swap" rel="stylesheet"></head>
 <body>
 
-
-<div class="container">
+<div class="navbar">
+    <h1 class="branding"><i class="branding fas fa-film" id="branding-icon"></i>
+        Reel Ratings</h1>
+    <form action="search" id="search-container">
+        <input type="text" name="search-title" placeholder="Search by title" id="search-bar">
+        <button type="button" id="search-button"><i class="fas fa-search"></i></button>
+    </form>
 </div>
 
+<!--<h1 class="header">My Movies</h1>-->
 <div class="form-container">
     <form>
-        <input type="text" name="movie-title" placeholder="Movie Title" id="movie-title-input"><br>
+        <input type="text" name="movie-title" placeholder="Add New Movie Title" id="movie-title-input"><br>
         <select id="movie-rating-input">
             <option value="">Select a rating</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-          <option value="4">4</option>
-            <option value="5">5</option>
+            <option value="★">★</option>
+            <option value="★★">★★</option>
+            <option value="★★★">★★★</option>
+            <option value="★★★★">★★★★</option>
+            <option value="★★★★★">★★★★★</option>
         </select>
-        <button type="button" id="submit-button">Submit</button>
+        <button type="button" id="submit-button">Add</button>
         <button type="button" id="edit-button">Edit</button>
     </form>
 </div>
+<div class="container">
+
+</div>
+
 
 
 <div class="modal"></div>

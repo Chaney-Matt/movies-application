@@ -1,39 +1,44 @@
 {
   "movies": [
     {
-      "title": "Adams Family",
-      "rating": "1",
-      "id": 2
-    },
-    {
-      "title": "Avatar",
-      "rating": "3",
-      "id": 3
-    },
-    {
-      "title": "Alien",
-      "rating": "5",
-      "id": 4
-    },
-    {
-      "title": "Movie",
-      "rating": "3",
+      "title": "Friday",
+      "rating": "★★★★",
       "id": 5
     },
     {
-      "title": "Test 2",
-      "rating": "2",
+      "title": "Reservoir Dogs",
+      "rating": "★★",
       "id": 6
     },
     {
-      "title": "Test 2",
-      "rating": "2",
+      "title": "Rubber",
+      "rating": "★",
       "id": 7
     },
     {
-      "title": "Test 2",
-      "rating": "2",
+      "title": "Step Brothers",
+      "rating": "★★★",
       "id": 8
+    },
+    {
+      "title": "The Shawshank Redemption",
+      "rating": "★★★★",
+      "id": 9
+    },
+    {
+      "title": "The Matrix",
+      "rating": "★★★★",
+      "id": 10
+    },
+    {
+      "title": "Silence of the Lambs",
+      "rating": "★★★★★",
+      "id": 11
+    },
+    {
+      "title": "Psycho",
+      "rating": "★★★★",
+      "id": 12
     }
   ]
 }
