@@ -23,11 +23,9 @@ function deleteThis() {
     });
 }
 
-
-
 function editThis() {
     $('.row-edit').on("click", function () {
-                let id = $(this).attr('data-id');
+        let id = $(this).attr('data-id');
         let entry = 0;
         if(entry === 0) {
         $('#movie-title-input').attr('placeholder', 'Edit Movie Here');
@@ -50,13 +48,12 @@ function editThis() {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify(movie)
-                }).then(() => {
-                   $('#submit-button').show();
+                     }).then(() => {
+                    $('#submit-button').show();
                     $('#edit-button').hide();
                     $('#movie-title-input').attr('placeholder', 'Movie Title');
-
                 });
-            generateTable()
+                generateTable()
             });
 
     });
