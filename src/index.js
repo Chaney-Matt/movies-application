@@ -8,16 +8,6 @@ import {getMovies} from './api';
 
 $('#edit-button').hide();
 
-let clearForm = () => {
-    $('#movie-title-input').val('');
-    $('#movie-rating-input').val('');
-};
-
-let clearEdit = () => {
-    $('#edit-button').attr('data-id', '');
-    // $('.row-button').attr('data-id', '')
-};
-
 function deleteThis() {
     $('.row-delete').on("click", function () {
         let id = $(this).attr('data-id');
@@ -34,55 +24,26 @@ function deleteThis() {
     });
 }
 
-
-let editButton = () => {
-    // $('#edit-button').on("click", function (e) {
-    //     e.preventDefault();
-    //     let title = $('#movie-title-input').val();
-    //     let rating = $('#movie-rating-input').val();
-    //     let movie = {
-    //         title: title,
-    //         rating: rating,
-    //         id: id
-    //     };
-    //     console.log(`row button id: ${id}`);
-    //
-    //     fetch(`/api/movies/${id}`, {
-    //         method: 'PUT',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify({title, rating})
-    //     }).then(() => {
-    //         clearForm();
-    //         clearEdit();
-    //         $('#edit-button').hide();
-    //         $('#submit-button').show();
-    //         $('#movie-title-input').attr('placeholder', 'Movie Title');
-    //     }).then(() => {
-    //         generateTable();
-    //     });
-    // })
-};
-
 function editThis() {
     $('.row-edit').on("click", function () {
-        // $('#movie-title-input').attr('placeholder', 'Edit Movie');
         $('#submit-button').hide();
         $('#edit-button').show();
 
+        // getting ID from data-id attribute
         let getId = $(this).attr("data-id");
+        // Getting movie info to fill form using Ajax call (didn't know how to do it with Fetch so used an ajax call from previous lesson)
         let getInfo = $.ajax({
             url: '/api/movies/' + getId,
             method: 'GET',
-            data: getId
         });
         getInfo.done((movie) => {
+            // Showing selected info to edit in the form
             $('#movie-title-input').val(movie.title);
             $('#movie-rating-input').val(movie.rating);
+            // Assigned the edit button an attribute id to pull when clicked later; allows it to be reset in the .then()
             $('#edit-button').attr('data-id', movie.id);
-            console.log(movie.id);
         });
+        // Setting up rules for click function
         $('#edit-button').on("click", function () {
             let title = $('#movie-title-input').val();
             let rating = $('#movie-rating-input').val();
@@ -91,7 +52,6 @@ function editThis() {
                 rating: rating,
                 id: $('#edit-button').attr('data-id')
             };
-            // console.log(`row button id: ${id}`);
             fetch('/api/movies/' + movie.id, {
                 method: 'PUT',
                 headers: {
@@ -99,8 +59,10 @@ function editThis() {
                 },
                 body: JSON.stringify({title, rating})
             }).then(() => {
-                clearForm();
-                clearEdit();
+                // Clearing form data, resetting form, regenerating table
+                $('#movie-title-input').val('');
+                $('#movie-rating-input').val('');
+                $('#edit-button').attr('data-id', ''); //Resetting ID to prevent duplicates
                 $('#edit-button').hide();
                 $('#submit-button').show();
                 $('#movie-title-input').attr('placeholder', 'Movie Title');
@@ -109,46 +71,6 @@ function editThis() {
         });
     });
 }
-
-// function editThis() {
-//     $('.row-edit').on("click", function () {
-//         let id = $(this).attr('data-id');
-//         console.log(`row ${id} edit clicked`);
-//             $('#movie-title-input').attr('placeholder', 'Edit Movie');
-//             $('#submit-button').hide();
-//             $('#edit-button').show();
-//
-//
-// $('#edit-button').on("click", function (e) {
-//     e.preventDefault();
-//     let title = $('#movie-title-input').val();
-//     let rating = $('#movie-rating-input').val();
-//     let movie = {
-//         title: title,
-//         rating: rating,
-//         id: id
-//     };
-//     console.log(`row button id: ${id}`);
-//
-//     fetch(`/api/movies/${id}`, {
-//         method: 'PUT',
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify({title, rating})
-//     }).then(() => {
-//         clearForm();
-//         clearEdit();
-//         $('#edit-button').hide();
-//         $('#submit-button').show();
-//         $('#movie-title-input').attr('placeholder', 'Movie Title');
-//     }).then(() => {
-//         generateTable();
-//     });
-// });
-//     });
-// }
-
 
 const generateTable = () => {
     getMovies().then((movies) => {

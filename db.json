@@ -1,18 +1,18 @@
 {
   "movies": [
     {
-      "title": "Test 2",
-      "rating": "★★",
+      "title": "The Grudge",
+      "rating": "★★★",
       "id": 5
     },
     {
-      "title": "Test",
-      "rating": "★",
+      "title": "Tucker and Dale vs. Evil",
+      "rating": "★★★★★",
       "id": 6
     },
     {
-      "title": "Test 3",
-      "rating": "★★★",
+      "title": "Cabin in the Woods",
+      "rating": "★★★★",
       "id": 7
     },
     {
