@@ -6,6 +6,7 @@ html, body {
     display: flex;
     justify-content: center;
     font-family: 'Montserrat', sans-serif;
+    /*margin-top: 0*/
     /*top: 50%;*/
     /*transform: translateY(-100%);*/
     /*text-align: center;*/
@@ -33,28 +34,35 @@ html, body {
     padding-top: 1em;
     margin-left: 0;
     margin-right: 0;
+    text-shadow: 2px 2px gray;
 }
 
 #branding-icon {
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     padding-left: 1em;
+    padding-right: .5em;
 }
 
 table {
-    border: none;
     margin-top: 1em;
 }
 
 th {
     font-family: 'Bebas Neue', cursive;
-    font-size: x-large;
+    font-size: 2em;
     background-color: darkred;
     color: white;
     padding: 0;
+    text-shadow: 1px 1px gray;
+}
+
+tr:nth-child(even) {
+    background: lightgray;
 }
 
 td {
+    border: none;
     padding: 1em 3em;
 }
 
@@ -71,7 +79,7 @@ td {
 }
 
 #search-container {
-    padding-bottom: 1em;
+    /*padding-bottom: 1em;*/
 }
 
 #search-bar {
@@ -93,7 +101,7 @@ td {
     height: 3em;
 }
 
-#submit-button{
+#submit-button, #edit-button{
     background-color: darkred;
     border: 1px solid white;
     border-radius: 25px;

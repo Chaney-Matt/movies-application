@@ -13,10 +13,10 @@ let clearForm = () => {
     $('#movie-rating-input').val('');
 };
 
-// let clearEdit = () => {
-//     $('#edit-button').attr('data-id', '');
-//     $('.row-button').attr('data-id', '')
-// };
+let clearEdit = () => {
+    $('#edit-button').attr('data-id', '');
+    // $('.row-button').attr('data-id', '')
+};
 
 function deleteThis() {
     $('.row-delete').on("click", function () {
@@ -35,29 +35,64 @@ function deleteThis() {
 }
 
 
+let editButton = () => {
+    // $('#edit-button').on("click", function (e) {
+    //     e.preventDefault();
+    //     let title = $('#movie-title-input').val();
+    //     let rating = $('#movie-rating-input').val();
+    //     let movie = {
+    //         title: title,
+    //         rating: rating,
+    //         id: id
+    //     };
+    //     console.log(`row button id: ${id}`);
+    //
+    //     fetch(`/api/movies/${id}`, {
+    //         method: 'PUT',
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify({title, rating})
+    //     }).then(() => {
+    //         clearForm();
+    //         clearEdit();
+    //         $('#edit-button').hide();
+    //         $('#submit-button').show();
+    //         $('#movie-title-input').attr('placeholder', 'Movie Title');
+    //     }).then(() => {
+    //         generateTable();
+    //     });
+    // })
+};
+
 function editThis() {
     $('.row-edit').on("click", function () {
-        let id = $(this).attr('data-id');
-        console.log(`row ${id} edit clicked`);
-        // let entry = 0;
-        // if (entry === 0) {
-            $('#movie-title-input').attr('placeholder', 'Edit Movie Here');
-            $('#submit-button').hide();
-            $('#edit-button').show();
-        // }
+        // $('#movie-title-input').attr('placeholder', 'Edit Movie');
+        $('#submit-button').hide();
+        $('#edit-button').show();
 
-        $('#edit-button').on("click", function (e) {
-            e.preventDefault();
+        let getId = $(this).attr("data-id");
+        let getInfo = $.ajax({
+            url: '/api/movies/' + getId,
+            method: 'GET',
+            data: getId
+        });
+        getInfo.done((movie) => {
+            $('#movie-title-input').val(movie.title);
+            $('#movie-rating-input').val(movie.rating);
+            $('#edit-button').attr('data-id', movie.id);
+            console.log(movie.id);
+        });
+        $('#edit-button').on("click", function () {
             let title = $('#movie-title-input').val();
             let rating = $('#movie-rating-input').val();
             let movie = {
                 title: title,
                 rating: rating,
-                id: id
+                id: $('#edit-button').attr('data-id')
             };
-            console.log(`row button id: ${id}`);
-
-            fetch(`/api/movies/${id}`, {
+            // console.log(`row button id: ${id}`);
+            fetch('/api/movies/' + movie.id, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -65,15 +100,54 @@ function editThis() {
                 body: JSON.stringify({title, rating})
             }).then(() => {
                 clearForm();
+                clearEdit();
                 $('#edit-button').hide();
                 $('#submit-button').show();
                 $('#movie-title-input').attr('placeholder', 'Movie Title');
-            }).then(() => {
                 generateTable();
-            });
+            })
         });
     });
 }
+
+// function editThis() {
+//     $('.row-edit').on("click", function () {
+//         let id = $(this).attr('data-id');
+//         console.log(`row ${id} edit clicked`);
+//             $('#movie-title-input').attr('placeholder', 'Edit Movie');
+//             $('#submit-button').hide();
+//             $('#edit-button').show();
+//
+//
+// $('#edit-button').on("click", function (e) {
+//     e.preventDefault();
+//     let title = $('#movie-title-input').val();
+//     let rating = $('#movie-rating-input').val();
+//     let movie = {
+//         title: title,
+//         rating: rating,
+//         id: id
+//     };
+//     console.log(`row button id: ${id}`);
+//
+//     fetch(`/api/movies/${id}`, {
+//         method: 'PUT',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify({title, rating})
+//     }).then(() => {
+//         clearForm();
+//         clearEdit();
+//         $('#edit-button').hide();
+//         $('#submit-button').show();
+//         $('#movie-title-input').attr('placeholder', 'Movie Title');
+//     }).then(() => {
+//         generateTable();
+//     });
+// });
+//     });
+// }
 
 
 const generateTable = () => {

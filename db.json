@@ -1,18 +1,18 @@
 {
   "movies": [
     {
-      "title": "Friday",
-      "rating": "★★★★",
+      "title": "Test 2",
+      "rating": "★★",
       "id": 5
     },
     {
-      "title": "Reservoir Dogs",
-      "rating": "★★",
+      "title": "Test",
+      "rating": "★",
       "id": 6
     },
     {
-      "title": "Rubber",
-      "rating": "★",
+      "title": "Test 3",
+      "rating": "★★★",
       "id": 7
     },
     {
